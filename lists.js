@@ -15,3 +15,5 @@ fruits.includes("Mango"); // Check item existence
 fruits.join(", "); // Convert to string
 fruits.slice(1, 3); // Extract elements
 fruits.concat(["Papaya", "Guava"]); // Merge arrays
+
+let mixedArray = ["Apple", 5, true, null];
