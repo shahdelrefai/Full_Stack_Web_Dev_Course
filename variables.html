@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var - Function scoped
+        function testVar() {
+            var a = 10;
+            if (true) {
+                var a = 20; // Overwrites the variable
+            }
+            console.log(a); // 20
+        }
+
+        // let - Block scoped
+        function testLet() {
+            let b = 10;
+            if (true) {
+                let b = 20; // Different variable inside block
+            }
+            console.log(b); // 10
+        }
+
+        testVar();
+        testLet();
+
+        // const - Immutable
+        const c = 30;
+        c = 40; //  TypeError: Assignment to constant variable
+
+    </script>
+</body>
+</html>
