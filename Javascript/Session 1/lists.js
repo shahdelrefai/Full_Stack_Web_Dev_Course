@@ -1,19 +1,19 @@
-let fruits = ["Apple", "Banana", "Mango"]; // Array of strings
-console.log(fruits[0]); // Apple
+let places = ["Dubai", "Riyadh", "Cairo"]; // Array of strings
+console.log(places[0]); // Dubai
 
-fruits.push("Orange"); // Add to end
-fruits.pop(); // Remove last item
-fruits.unshift("Grapes"); // Add to start
-fruits.shift(); // Remove first item
-fruits.splice(1, 1, "Kiwi"); // Add/Remove at index
-fruits[0] = "Pineapple"; // Update an element
-fruits.length; // Length of the array
-fruits.sort(); // Sort the array
-fruits.reverse(); // Reverse the array
-fruits.indexOf("Banana"); // Find index of an item
-fruits.includes("Mango"); // Check item existence
-fruits.join(", "); // Convert to string
-fruits.slice(1, 3); // Extract elements
-fruits.concat(["Papaya", "Guava"]); // Merge arrays
+places.push("Beirut"); // Add to end
+places.pop(); // Remove last item
+places.unshift("Amman"); // Add to start
+places.shift(); // Remove first item
+places.splice(1, 1, "Doha"); // Add/Remove at index
+places[0] = "Jerusalem"; // Update an element
+places.length; // Length of the array
+places.sort(); // Sort the array
+places.reverse(); // Reverse the array
+places.indexOf("Riyadh"); // Find index of an item
+places.includes("Cairo"); // Check item existence
+places.join(", "); // Convert to string
+places.slice(1, 3); // Extract elements
+places.concat(["Muscat", "Manama"]); // Merge arrays
 
-let mixedArray = ["Apple", 5, true, null];
+let mixedArray = ["Cairo", 5, true, null];
