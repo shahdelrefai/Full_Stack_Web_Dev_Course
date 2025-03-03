@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --text-color: #333;
+            --background-color: #f4f4f4;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+
+        nav {
+            background: var(--primary-color);
+            padding: 15px;
+            text-align: center;
+            transition: background 0.3s ease-in-out;
+        }
+
+        nav:hover {
+            background: #388E3C;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to right, #4CAF50, #2E8B57);
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .project {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            padding: 50px 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Web Developer | Student | Reader</p>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Welcome to my profile.<br> My name is Ethar Ali .I am 17 years old . I am a high school student. <br> I am a prommaging coach and a web developer . My hobbies are reading , photography , and watchind films and series .</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid-container">
+            <div class="project">
+                <h1>Cars</h1>
+                <img src="./ferrari.avif" height="200px" width="200px">>
+            </div>
+            <div class="project">
+                 <h1>Cartoons </h1>
+                 <img src="./cartoon.jpeg alt="">
+            </div>
+            <div class="project">
+                <h1>Books</h1>
+                <img src="./books.jpeg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: itharalimaher@gmail.com</p>
+    </section>
+
+
+</body>
+</html>

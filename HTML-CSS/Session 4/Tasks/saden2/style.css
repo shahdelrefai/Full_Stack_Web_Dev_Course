@@ -1,0 +1,90 @@
+body{
+    margin: 0;
+}
+nav a:hover {
+    background-color: grey; 
+    border-radius: 5px;
+    animation: fadein 1s;
+}
+.div1 {
+    text-align: center;
+    padding: 5rem 0;
+    margin: 0 auto;
+}
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+#about {
+    padding: 3rem;
+}
+.about-content {
+    display: flex;
+    align-items: center;
+}
+.about-content img {
+    width: 200px;
+    height: 200px;
+    border-radius: 25%; 
+    margin-right: 5rem;
+}
+#projects {
+    padding: 3rem;
+    background-color: rgb(241, 240, 240);
+}
+.projects{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+.project {
+    border: 1px solid black;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.project:hover{
+    animation: colors 2s;
+}
+@keyframes colors {
+    from{
+        background-color: white;
+        color:black;
+    }
+    to{
+        background-color: #333;
+        color: white;
+    }
+}
+.project img {
+    width: 100%;
+    height: auto;
+    display: block; /* Prevent image from creating extra space */
+}
+.project h3 {
+    padding: 1rem;
+    margin: 0;
+}
+.project p {
+    padding: 0 1rem 1rem;
+}
+#contact {
+    padding: 3rem;
+    background-color: #fff;
+    text-align: center;
+    background-color: #333;
+    color: white;
+}
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.contact-form a{
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+.contact-form a:hover {
+    background-color: grey; 
+    border-radius: 5px;
+    animation: fadein 1s;
+}
