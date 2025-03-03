@@ -7,13 +7,6 @@ let book = {
     }
 };
 
-book.prototype.getAge = function() {
-    let years = new Date().getFullYear() - this.year;
-    return `${this.title} is ${years} years old`;
-}
-
-console.log(book.getAge());
-
 //------------------ Accessing Object Properties ------------------
 console.log(book.title); // A Brief History of Time
 console.log(book["author"]); // Stephen Hawking
@@ -48,3 +41,5 @@ Book.prototype.getAge = function() {
     let years = new Date().getFullYear() - this.year;
     return `${this.title} is ${years} years old`;
 };
+
+console.log(book1.getAge());
