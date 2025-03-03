@@ -1,4 +1,4 @@
-//-------------- Function --------------
+//-------------- Defining Function --------------
 function greet(name) {
     console.log("Hello, " + name);
 }

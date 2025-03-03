@@ -19,3 +19,9 @@ places.concat(["Muscat", "Manama"]); // Merge arrays
 
 //----------------- Mixed Array -----------------
 let mixedArray = ["Cairo", 5, true, null];
+
+
+//-------------Spread Operator-------------
+let continents = ["Asia", "Africa", "Europe"];
+let world = [...continents, "China", "Egypt", "Turkey"];
+console.log(world); // ["Asia", "Africa", "Europe", "China", "Egypt", "Turkey"]
