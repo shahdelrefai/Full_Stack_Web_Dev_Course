@@ -18,12 +18,6 @@ do {
     num++;
 } while (num < 5);
 
-//--------------- For-each Loop ---------------
-let colors = ["Red", "Green", "Blue"];
-colors.forEach((color) => {
-    console.log(color);
-});
-
 //--------------- For-in Loop ---------------
 let person = {
     name: "John",
