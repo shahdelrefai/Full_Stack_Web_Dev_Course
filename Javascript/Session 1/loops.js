@@ -1,6 +1,6 @@
 //----------------- For Loop -----------------
 // for (initialization; condition; increment/decrement)
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i <= 5; i++) {
     console.log(i);
 }
 
@@ -14,15 +14,12 @@ while (count < 5) {
 //--------------- Do-While Loop ---------------
 let num = 0;
 do {
-    console.log(num);
+    console.log("HIiiiiii");
     num++;
-} while (num < 5);
+} while (num < 0);
 
 //--------------- For-in Loop ---------------
-let person = {
-    name: "John",
-    age: 30
-};
-for (let key in person) {
-    console.log(key, person[key]);
+let fruits = ["Apple", "Banana", "Orange"];
+for (let index in fruits) {
+    console.log(fruits[index]);
 }

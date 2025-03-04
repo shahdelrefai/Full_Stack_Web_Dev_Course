@@ -8,6 +8,7 @@ console.log(name); // Undefined (Hoisting)
 var name = "Mohamed";
 console.log(name); // Mohamed
 var x = 10;
+var age = 25;
 
 if (true) {
     var age = 30;

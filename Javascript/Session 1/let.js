@@ -7,6 +7,7 @@
 let name = "Mohamed";
 let x = 10;
 console.log(x);
+//let age = 25;
 
 if (true) {
     let age = 30;
