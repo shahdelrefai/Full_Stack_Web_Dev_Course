@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School System</title>
+</head>
+<body>
+    <h1>School System</h1>
+    <form id="studentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+        <label for="subjects">Subjects (comma separated):</label>
+        <input type="text" id="subjects" name="subjects" required><br><br>
+        <button type="button" onclick="processStudent()">Submit</button>
+    </form>
+
+    <h2>Results</h2>
+    <p id="result"></p>
+
+    <script>
+        function processStudent() {
+            const name = document.getElementById('name').value;
+            const age = parseInt(document.getElementById('age').value);
+            const subjects = document.getElementById('subjects').value.split(',');
+
+            // 1. Print name if age >= 18, else print false
+            const ageResult = age >= 18 ? name : false;
+            document.getElementById('result').innerHTML = `Age check: ${ageResult}<br>`;
+
+            // 2. Check if student is enrolled in Math
+            const isEnrolledInMath = subjects.includes('Math');
+            document.getElementById('result').innerHTML += `Enrolled in Math: ${isEnrolledInMath}<br>`;
+
+            // 3. Print all subjects as a string
+            const subjectsString = subjects.join(', ');
+            document.getElementById('result').innerHTML += `Subjects: ${subjectsString}`;
+        }
+    </script>
+</body>
+</html>
