@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School System</title>
+</head>
+<body>
+    <h1>School System</h1>
+    <div>
+        <label for="schoolName">School Name:</label>
+        <input type="text" id="schoolName">
+        <button id="addSchool">Add School</button>
+    </div>
+
+    <div>
+        <h2>Student Information</h2>
+        <label for="selectSchool">Select School:</label>
+        <select id="selectSchool"></select>
+        <br>
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName">
+        <label for="studentAge">Student Age:</label>
+        <input type="number" id="studentAge">
+        <label for="studentGrade">Student Grade:</label>
+        <input type="number" id="studentGrade">
+        <br>
+        <label>Student Subjects:</label>
+        <div id="subjectsCheckboxes">
+            <label><input type="checkbox" value="Math"> Math</label>
+            <label><input type="checkbox" value="Science"> Science</label>
+            <label><input type="checkbox" value="English"> English</label>
+            <label><input type="checkbox" value="History"> History</label>
+            <label><input type="checkbox" value="Physics"> Physics</label>
+        </div>
+        <br>
+        <button id="addStudent" onclick="addStudentToSchool()">Add Student</button>
+    </div>
+
+    <h2>Schools</h2>
+    <div id="schoolsList"></div>
+
+    <script src="./answer.js"></script>
+    <script> //type="module"
+        //import { Student, School } from './answer.js';
+
+        let schools = [];
+
+        document.getElementById("addSchool").addEventListener("click", () => {
+            const schoolName = document.getElementById("schoolName").value;
+            if (schoolName.trim() !== "") {
+                const newSchool = new School(schoolName);
+                schools.push(newSchool);
+
+                const option = document.createElement("option");
+                option.value = schoolName;
+                option.innerText = schoolName;
+                document.getElementById("selectSchool").appendChild(option);
+
+                updateSchoolsList();
+                document.getElementById("schoolName").value = "";
+            }
+        });
+
+        function addStudentToSchool() {
+            const selectedSchoolName = getValueOfElement("selectSchool");
+            if (!selectedSchoolName) {
+                alert("Please select a school first.");
+                return;
+            }
+
+            const name = getValueOfElement("studentName");
+            const age = Number(getValueOfElement("studentAge"));
+            const grade = Number(getValueOfElement("studentGrade"));
+            const subjects = Array.from(document.querySelectorAll("#subjectsCheckboxes input:checked")).map(subject => subject.value);
+
+            if (name.trim() === "" || Number.isNaN(age) || age===0 || Number.isNaN(grade) || subjects.length === 0) {
+                alert("Please fill in all student fields correctly.");
+                return;
+            }
+
+            const student = new Student(name, age, grade, subjects);
+            const school = schools.find(s => s.name === selectedSchoolName);
+            school.students.push(student);
+
+            updateSchoolsList();
+
+            clearInputsValues(["schoolName", "studentName", "studentAge", "studentGrade"]);
+            document.querySelectorAll("#subjectsCheckboxes input").forEach(subject => subject.checked = false);
+        }
+
+        function updateSchoolsList() {
+            const schoolsDiv = document.getElementById("schoolsList");
+            schoolsDiv.innerHTML = "";
+            schools.forEach(school => {
+                const theSchoolDiv = document.createElement("div");
+                schoolDiv.innerHTML = `<h3>${school.name}</h3>`;
+                const studentList = document.createElement("ul");
+                school.students.forEach(student => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `<strong>${student.name}</strong> (Age: ${student.age}, Grade: ${student.grade})<br>Subjects: ${student.subjects.join(", ")}`;
+                    studentList.appendChild(li);
+                });
+                schoolDiv.appendChild(studentList);
+                schoolsDiv.appendChild(theSchoolDiv);
+            });
+        }
+
+        function clearInputsValues(ids) {
+            for (const id of ids) {
+                document.getElementById(id).value = "";
+            }
+        }
+
+        function getValueOfElement(elementId) {
+            return document.getElementById(elementId).value;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Demo</title>
+    <style>
+        .highlight {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Manipulation Demo</h1>
+
+    <button id="applyChanges">Apply Changes</button>
+
+    <h2>Text Manipulation</h2>
+    <p id="textChange">Original Text</p>
+
+    <h2>HTML Manipulation</h2>
+    <div id="htmlDiv">This content will be replaced.</div>
+
+    <h2>Attribute Manipulation</h2>
+    <img id="imageID" src="oldImage.jpg" alt="Old Image" width="150">
+
+    <h2>Style Manipulation</h2>
+    <button id="styledButton">Click me</button>
+
+    <h2>Class Manipulation</h2>
+    <p id="classElement">This will get a new class.</p>
+    <button id="togglebutton">Toggle</button>
+
+    <h2>Adding New Elements</h2>
+    <div id="parent">
+        <h3 id="reference">Reference Element</h3>
+    </div>
+
+    <button id="myButton">Click Me</button>
+
+    <script>
+        //---------- Accessing DOM Elements ----------
+        const element = document.getElementById("elementID"); // By ID
+        const elements = document.getElementsByClassName("elementClass"); // By Class
+        const paragraphs = document.getElementsByTagName("p"); // By Tag
+        const element11 = document.querySelector(".elementClass"); // First element by class
+        const elementsC = document.querySelectorAll(".elementClass"); // All elements by class
+
+
+        document.getElementById("applyChanges").addEventListener("click", function() {
+            //---------- Changing Text Content ----------
+            const textchange = document.getElementById("textChange");
+            textchange.innerText = "Text Updated!";
+            //document.getElementById("textChange").textContent = "Text Updated!";
+
+            //---------- Changing HTML Content ----------
+            document.getElementById("htmlDiv").innerHTML = "<h3>New HTML Content</h3>";
+
+            //---------- Changing Attributes ----------
+            const img = document.getElementById("imageID");
+            img.src = "newImage.jpg";
+            img.alt = "Updated Image";
+
+            //---------- Changing Styles ----------
+            const button = document.getElementById("styledButton");
+            button.style.backgroundColor = "red";
+            button.style.color = "white";
+
+            //---------- Adding a Class ----------
+            document.getElementById("classElement").classList.add("highlight");
+            document.getElementById("togglebutton").addEventListener("click", () => {
+                document.getElementById("togglebutton").classList.toggle("highlight");
+            });
+
+            //---------- Creating & Inserting New Elements ----------
+            const referenceNode = document.getElementById("reference");
+
+            // Creating and appending a new element
+            const newDiv = document.createElement("div");
+            newDiv.innerHTML = "<h3>New Div (Appended)</h3>";
+            referenceNode.parentNode.appendChild(newDiv);
+
+            // Creating and inserting before another element
+            const newDiv2 = document.createElement("div");
+            newDiv2.innerHTML = "<h3>New Div (Inserted Before Reference)</h3>";
+            referenceNode.parentNode.insertBefore(newDiv2, referenceNode);
+        });
+
+        //Navigating Up (Parent Node)
+        const child = document.getElementById("child");
+        const parent = child.parentNode;
+
+        //Navigating Down (Child Nodes)
+        const container = document.getElementById("container");
+        const firstChild = container.firstElementChild;
+        const allChildren = container.children;
+
+        //Navigating Sideways (Siblings)
+        const current = document.getElementById("current");
+        const nextSibling = current.nextElementSibling;
+        const previousSibling = current.previousElementSibling;
+
+
+        //Adding Event Listeners
+        const button = document.getElementById("myButton");
+        button.addEventListener("click", function() {
+            alert("Button clicked!");
+        });
+
+        //if element contains a class
+        if (element.classList.contains("active")) {
+            console.log("The element is active!");
+        }
+    </script>
+</body>
+</html>
